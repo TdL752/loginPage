@@ -1,12 +1,19 @@
+// buttons
 const loginBtn = document.getElementById('login-button');
 const registerBtn = document.getElementById('register-account');
+
+// inputs
 const usernameInput = document.getElementById('username-input');
 const passwordInput = document.getElementById('password-input');
 const confirmInput = document.getElementById('confirm-password-input');
+
+// fail messages
 const accountFailMsg = document.getElementById('account-fail');
 const passwordMatchFail = document.getElementById('password-match');
 const usernameFail = document.getElementById('username-fail');
 const allMsg = document.querySelectorAll('.fail-message');
+
+// input variables
 let username;
 let password;
 let confirmPassword;
@@ -74,15 +81,17 @@ async function register() {
 	    };
 
 	    if (!response.ok) {
-		    //account fail
+		    //account registration fail
             accountFailMsg.classList.toggle('hidden');
 		    return;
 	    };
 
+        // on success hide login page and show success message for 1 second
+        // redirect to tokenized home page
 	    if (data.message) {
 		    document.getElementById('field').style.display = 'none';
 		    document.getElementById('success').style.display = 'block';
-            
+
 		    setTimeout(() => {
 			    window.location.href = '/home';
 		    }, 1000);
@@ -94,12 +103,17 @@ async function register() {
     };
 };
 	
+
+// check if buttons are in DOM first to prevent compiling errors
+
 if (loginBtn) {
     loginBtn.addEventListener('click', () => {
+        // reset all fail messages on button click
         allMsg.forEach(msg => {
             msg.classList.add('hidden');
         });
 
+        // asign values on button click
         username = usernameInput.value;
         password = passwordInput.value;
 
@@ -109,10 +123,12 @@ if (loginBtn) {
 
 if (registerBtn) {
     registerBtn.addEventListener('click', () => {
+        // reset all fail messages on button click
         allMsg.forEach(msg => {
             msg.classList.add('hidden');
         });
 
+        // asign values on button click
         username = usernameInput.value;
         password = passwordInput.value;
         confirmPassword = confirmInput.value;
