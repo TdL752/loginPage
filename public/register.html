@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width initial-scale=1.0'>
+		<link rel='stylesheet' href='styles.css'>
+	</head>
+	<body>
+		<nav>
+			<div id="nav-link-container">
+				<a class="nav-link" href="/home">
+					Home
+				</a>
+			</div>
+		</nav>
+
+		<fieldset id="field">
+			<div id="login-container">
+				<h1 class="login-labels">
+					Username:
+				</h1>
+				<input class="login-input" type="text" id="username-input" maxlength="30" placeholder="Username">
+
+				<h1 class="login-labels">
+					Password:
+				</h1>
+				<input class="login-input" type="password" id="password-input" maxlength="30" placeholder="Password">
+                
+                <h1 class="login-labels">
+                    Confirm Password:
+                </h1>
+                <input class="login-input" type="password" id="confirm-password-input" max-length="30" placeholder="confirm password">
+
+				<button class="buttons" id="register-account" type="button">
+					Create Account
+				</button>
+
+				<div id="success" class="hidden">
+					<h1 class="success-message">
+						Account registration successful
+					</h1>
+				</div>
+
+				<div id="account-fail" class="fail-message hidden">
+					<p>
+						Please check input fields
+					</p>
+				</div>
+
+				<div id="password-match" class="fail-message hidden">
+					<p>
+						Passwords do not match
+					</p>
+				</div>
+
+				<div id="username-fail" class="fail-message hidden">
+					<p>
+						Username taken
+					</p>
+				</div>
+			</div>
+		</fieldset>
+		<script src="script.js"></script>
+	</body>
+</html>
